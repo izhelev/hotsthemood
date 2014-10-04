@@ -1,0 +1,505 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Shared",
+				"SharedAssemblyInfo"
+			],
+			[
+				"web",
+				"webRoot"
+			],
+			[
+				"branch",
+				"branchName"
+			],
+			[
+				"items",
+				"itemsToCleanup"
+			],
+			[
+				"clean",
+				"cleanupOlderThanDays"
+			],
+			[
+				"then",
+				"thenOpen"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package control",
+				"Package Control: List Packages"
+			],
+			[
+				"indent",
+				"Indent XML"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/code/hotsthemood/UI"
+	],
+	"file_history":
+	[
+		"/C/code/Execview/Execview.Web/Properties/Timestamp.ps1",
+		"/C/code/Execview/Execview.Web/Properties/Timestamp.bat",
+		"/C/code/Execview/References/powershell/modules/Add-IISSite.psm1",
+		"/C/code/Execview/Execview.nuspec",
+		"/C/code/Execview/Deploy.ps1",
+		"/C/code/Execview/Execview.Web/Execview.Web.csproj",
+		"/C/code/git-migtation/Execview/Start-ExecviewDeployDefault.ps1",
+		"/C/code/git-migtation/Execview/Execview.nuspec",
+		"/C/code/git-migtation/Execview/Start-ExecviewBuildDefault.ps1",
+		"/C/code/git-migtation/Execview/.gitbugtraq",
+		"/C/code/git-migtation/Execview/Build/TeamCity/platforms.json",
+		"/C/Users/lacho/Downloads/DevKit/config.yml",
+		"/C/code/git-migtation/Execview/Deploy.ps1",
+		"/C/code/git-migtation/users.txt",
+		"/C/code/develop/Start-ExecviewBuild.bat",
+		"/C/code/develop/Start-ExecviewBuildDefault.ps1",
+		"/C/code/develop/References/powershell/modules/Add-LocalWindowsUser.psm1",
+		"/C/code/develop/Start-ExecviewBuild.ps1",
+		"/E/EV-15890/Start-DEV-ExecviewBuild.bat",
+		"/E/Sync.sql",
+		"/E/EV-15890/DB/RoundhousE/deployment/DEV.DBDeployment.DropRestore.bat",
+		"/E/EV-15890/DB/RoundhousE/deployment/DEV.DBDeployment.DropCustomCreate.bat",
+		"/E/EV-15890/Start-ExecviewBuildDefault.ps1",
+		"/E/EV-15890/DB/RoundhousE/deployment/LOCAL.DBDeployment.bat",
+		"/E/EV-15890/DB/RoundhousE/deployment/DEV.DBDeployment.bat",
+		"/E/EV-15890/DB/RoundhousE/db/Execview/custom_db_create.sql",
+		"/F/Dropbox (Execview)/ORG Shared/development/GSIS/GSIS-Upgrade/Execview-4.1.133.25903/Package/Start-ExecviewBuildDefault.ps1",
+		"/C/code/EV-15890/DB/RoundhousE/deployment/_BuildInfo.xml",
+		"/C/code/EV-15890/DB/RoundhousE/deployment/DEV.DBDeployment.DropCustomCreate.bat",
+		"/C/code/EV-15890/DB/RoundhousE/deployment/LOCAL.DBDeployment.bat",
+		"/C/code/EV-15890/DB/RoundhousE/db/Execview/runAfterCreateDatabase/20140129_baseline.sql",
+		"/F/Dropbox (Execview)/ORG Shared/development/GSIS/GSIS-Upgrade/Execview-4.1.133.25903/Package/Start-GSIS-ExecviewBuild.bat",
+		"/C/code/EV-15820/Execview.Web/Properties/Timestamp.ps1",
+		"/C/code/EV-15820/Execview.Web/Properties/Timestamp.bat",
+		"/E/GSIS-Upgrade/Execview-4.1.133.25903/Package/Start-GSIS-ExecviewBuild.bat",
+		"/E/GSIS-Upgrade/Execview-4.1.133.25903/Package/Start-ExecviewBuildDefault.ps1",
+		"/E/GSIS-Upgrade/Execview-4.1.133.25903/Package/Start-ExecviewBuild.ps1",
+		"/E/GSIS-Upgrade/Execview-4.1.133.25903/Package/Start-ExecviewBuild.bat",
+		"/C/code/EV-15820/Start-ExecviewBuild.bat",
+		"/C/code/master/Start-ExecviewBuildDefault.ps1",
+		"/E/GSIS Upgrade/Execview 4.1.133.25903/Package/DB/Roundhouse/deployment/_BuildInfo.xml",
+		"/E/GSIS Upgrade/Execview 4.1.133.25903/Package/Start-ExecviewBuild.bat",
+		"/E/GSIS Upgrade/Execview 4.1.133.25903/Package/DB/Roundhouse/deployment/LOCAL.DBDeployment.bat",
+		"/E/GSIS Upgrade/Execview 4.1.133.25903/Package/Start-ExecviewBuildDefault.ps1",
+		"/E/GSIS Upgrade/Execview 4.1.133.25903/Package/DB/Roundhouse/deployment/PROD.DBDeployment.bat",
+		"/E/GSIS Upgrade/Execview 4.1.133.25903/Package/DB/Roundhouse/deployment/GSIS.DBDeployment.bat",
+		"/E/GSIS Upgrade/Execview 4.1.133.25903/Package/DB/Roundhouse/deployment/DEV.DBDeployment.bat",
+		"/C/code/EV-15820/Start-ExecviewBuildDefault.ps1",
+		"/C/Users/lacho/Source/Repos/Execview/.gitignore",
+		"/C/Users/lacho/Source/Repos/Execview/README.md",
+		"/C/code/EV-15341/Build/TeamCity/platforms.json",
+		"/F/Dropbox (Execview)/Lacho ORG/Automatic Import Presentation to dev team",
+		"/F/Dropbox (Execview)/Lacho ORG/Automatic Import meeting with MSS",
+		"/F/Dropbox (Execview)/Lacho ORG/Product Steering Group",
+		"/F/Dropbox (Execview)/Lacho ORG/Review",
+		"/C/code/master/DB/Current/schema.sql",
+		"/C/code/master/DB/Current/migration.sql",
+		"/C/code/master/DB/Current/schema (2).sql",
+		"/C/Users/lacho/Source/Repos/Execview/Start-ExecviewBuildDefault.ps1",
+		"/C/code/EV-15820/Start-ExecviewBuild.ps1",
+		"/F/Dropbox (Execview)/Lacho ORG/Git workshop.txt",
+		"/C/code/EV-15820/Execview.Web/Properties/Timestamp.cs",
+		"/C/Users/lacho/Source/Repos/Execview/Execview.Web/Properties/Timestamp.cs",
+		"/C/Users/lacho/Source/Repos/Execview/Execview.Web/Properties/SvnRevision.cs.Template",
+		"/C/Users/lacho/Source/Repos/Execview/Execview.Web/Properties/SvnRevision.cs.SimpleTemplate",
+		"/C/code/test.html",
+		"/C/code/EV-15102/Start-ExecviewBuildDefault.ps1",
+		"/C/code/EV-15638/Start-ExecviewBuildDefault.ps1",
+		"/C/code/EV-15775/Start-ExecviewBuildDefault.ps1",
+		"/C/code/Check-BuildStatus.ps1",
+		"/C/code/gitWorkshop/GitWorkshop/README.md",
+		"/C/code/ActionDao/Start-ExecviewBuildDefault.ps1",
+		"/C/code/git/Clean Trunk/.gitignore",
+		"/C/Users/lacho/Documents/GitHub/RawDataAccessBencher/RawBencher/bin/Debug/results.txt",
+		"/C/Users/lacho/Documents/GitHub/RawDataAccessBencher/RawBencher/bin/Release/results.txt",
+		"/C/Users/lacho/Documents/GitHub/ExecviewCrawler/.gitignore",
+		"/C/Users/lacho/Documents/GitHub/RawDataAccessBencher/RawBencher/BenchResult.cs",
+		"/C/code/ActionDao/Start-ExecviewBuild.ps1",
+		"/C/code/ActionDao/Start-ExecviewBuild.bat",
+		"/F/Dropbox/Lacho ORG/EV-13713 DAOs.csv",
+		"/F/Dropbox/Lacho ORG/Review",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/code/ev_ac/Start-ExecviewBuild.bat",
+		"/C/code/ev_ac/References/powershell/modules/Add-LocalWindowsUser.psm1",
+		"/C/Users/lacho/Downloads/web.config",
+		"/C/code/ev_ac/Start-ExecviewBuildDefault.ps1",
+		"/F/Dropbox/Lacho ORG/UserRoleLinks testing.txt",
+		"/F/Dropbox/Lacho ORG/Role Types.txt",
+		"/F/Dropbox/Lacho ORG/UserRoleLinks testing - part 2.txt",
+		"/C/code/production/Execview.Web/Prompts/ReportingGroupDefinition.aspx.cs",
+		"/C/code/Automatic Import Testing/pages.js",
+		"/C/code/Automatic Import Testing/test.js",
+		"/F/Dropbox/Lacho ORG/Coats Plan.txt",
+		"/F/Dropbox/Lacho ORG/Product Steering Group",
+		"/F/Dropbox/ORG Shared/development/EV-15234 Execview Performance Report/Overall Recommendations.txt",
+		"/C/code/hubot/evbot/hubot-scripts.json",
+		"/C/code/Automated Testing/execview.js",
+		"/C/code/Automated Testing/automatedImport.js",
+		"/C/Users/lacho/Downloads/Execview.html",
+		"/C/code/ev_ac/Start-ExecviewBuild.ps1",
+		"/C/code/ev_ac/DB/RoundhouseE/deployment/DEV.DBDeployment.bat",
+		"/C/code/ev_ac/DB/RoundhouseE/deployment/DEV.DBDeployment.DropCustomCreate.bat",
+		"/F/Dropbox/Lacho ORG/Architecture Map.json",
+		"/C/Users/lacho/Desktop/joinmeauthcode.html",
+		"/C/code/hubot/evbot/scripts/rules.coffee",
+		"/C/code/hubot/evbot/package.json",
+		"/F/Dropbox/Lacho ORG/EV-15234 Execview Performance Report/Data.txt",
+		"/C/code/hubot/evbot/external-scripts.json",
+		"/C/code/hubot/evhubot/node_modules/hubot/docs/README.md",
+		"/C/code/hubot/evhubot/hubot-scripts.json",
+		"/C/code/hubot/evhubot/scripts/roles.coffee",
+		"/E/Shared/Fix_User_Creation.sql",
+		"/C/code/Rich Text Clipboard/app/scripts/coffee/TrelloClipboard.coffee",
+		"/C/code/Rich Text Clipboard/package.json",
+		"/F/Dropbox/Lacho ORG/Database/Sanitise_Execview.sql",
+		"/C/code/ev_ac/DB/RoundhouseE/db/Execview/custom_execview_database_create_script.sql",
+		"/C/code/ev_ac/DB/RoundhouseE/db/Execview/runAfterCreateDatabase/20140129_baseline.sql",
+		"/C/code/ev_ac/DB/RoundhouseE/deployment/_BuildInfo.xml",
+		"/E/Shared/Create Execview Database.sql",
+		"/C/code/ev_ac/DB/RoundhouseE/db/Execview/runAfterCreateDatabase/20130612_baseline.sql",
+		"/C/code/test.sql",
+		"/C/Users/lacho/Downloads/elements.less",
+		"/C/Users/lacho/AppData/Local/Temp/7zE75CD.tmp/elements.less",
+		"/F/Dropbox/Lacho ORG/Architecture Map/evmap/package.json",
+		"/C/code/Execview Beta/Start-ExecviewBuildDefault.ps1",
+		"/E/Shared/Execview-Clean.sql",
+		"/F/Dropbox/Lacho ORG/Automatic Import Presentation to dev team",
+		"/F/DropboxPortableAHK/Dropbox/Documents/165SerenPark_Tenancy/Notice/Mail.md"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\code\\develop",
+			"H:\\Execview-Trunk-Git-From-Local",
+			"H:\\Execview-Trunk-Git-From-Local\\.git"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"decodeURIComponent",
+			"getParameterByName",
+			"password",
+			"ev-",
+			"%20",
+			"[",
+			"\n",
+			"teamcity-s",
+			"-a",
+			"$script:buildNumberInformational",
+			"timestamp",
+			"assemblyinfo",
+			"PublishedConfiguration",
+			"testUrl",
+			"NEWRELICAPIKEY",
+			"reli",
+			"newrelic",
+			"newre",
+			"\\",
+			"add-",
+			"$script:buildNumber",
+			"$script:environment",
+			"physic",
+			"virtual",
+			"timesta",
+			"version",
+			"toolsver",
+			"msbuild",
+			"ToolsVersion",
+			"VisualStudioVersion",
+			"$solutionFile",
+			"solutionFile",
+			"VisualStudioVersion",
+			"msbuild",
+			"VisualStudioVersion",
+			"VSToolsPath",
+			"\\WebApplications",
+			"EV-",
+			"Bo Men",
+			"Marisha Shah",
+			"Alex Achim",
+			"EV-",
+			"V-",
+			"EV-",
+			"[EV-",
+			"EV-",
+			"invoke",
+			"artifac",
+			"remove",
+			"#",
+			"webRoot",
+			"buildNumberInformational",
+			"$script:branchName",
+			"document",
+			"documents",
+			"Found path:",
+			"curl",
+			"hotfix/",
+			"eirfpd1",
+			"curl ",
+			" curl",
+			"https://",
+			" https://",
+			"EV-",
+			"/EV",
+			"remotes/origin",
+			"$OctopusParameters",
+			"\\r",
+			"\\r\n",
+			",\n",
+			",",
+			" = ",
+			"_",
+			"    	",
+			"        ",
+			"Add-LocalWindowsUser",
+			"$platforms",
+			"$serverName",
+			"PSSessionSilent",
+			"publish-depl",
+			"vDirContainerFolder",
+			"$serverName",
+			"$vDirContainerFolder",
+			"$basePath",
+			"UnwantedDeployableArtifacts",
+			"IS NULL",
+			"restore",
+			"sync",
+			"sync-",
+			"PLATFORM",
+			"RemoveAddSyncDatabase",
+			"sync",
+			"Add-LocalWindowsUsers",
+			"Add-AdminWindowsUsers",
+			"Add-LocalWindowsUser",
+			"Add-lo",
+			"teamcity",
+			"Get-PSSessionSilent",
+			"Set-BuildNumber",
+			"buildNumber",
+			"vdircon",
+			"Publish-DeployableArtifacts",
+			"sync-d",
+			"roundhousePath",
+			"repository",
+			"$serverName",
+			"roundhousePath",
+			"\" ",
+			"DB",
+			"Invoke-DatabaseScripts",
+			"DB",
+			"{ &",
+			"roundhou",
+			"$platformName",
+			"roundhousePath",
+			"B-",
+			"\nB",
+			"/branches",
+			"[TestCase(",
+			"\n",
+			", ",
+			"	",
+			"date01",
+			"CompileSolution",
+			"build",
+			"nan",
+			"GetSitePreviousVersion",
+			"version"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\n",
+			"{{DatabaseName}}"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "UI.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
