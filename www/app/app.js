@@ -17,18 +17,18 @@ angular.module("hotsthemoodApp", ["ionic"])
 .config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('home', {
-			url: "/home",
+			url: "/iam",
 			templateUrl: "app/home/home.html"
 		})
 
 
 		.state('at', {
-			url: "/at/{mood}",
+			url: "/iam/{mood}/at",
 			templateUrl: "app/home/at.html"
 		})
 
 		.state('done', {
-			url: "/done/{mood}/{location}",
+			url: "/iam/{mood}/at/{location}",
 			templateUrl: "app/home/done.html"
 		})
 
@@ -39,7 +39,7 @@ angular.module("hotsthemoodApp", ["ionic"])
 		});
 
 	// if none of the above states are matched use this as the fallback
-	$urlRouterProvider.otherwise('/home');
+	$urlRouterProvider.otherwise('/iam');
 })
 
 
