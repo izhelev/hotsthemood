@@ -1,0 +1,93 @@
+/* Empty. Add your own CSS if you like */
+
+.topHeading {
+	color: #888888;
+	font-size: 5em;
+	line-height: 1em;
+	text-align:left;
+}
+
+.moodIcon, .moodText{
+	float:left;
+}
+.moodText{
+	padding-left: 0.4em;
+}
+
+.button-mood-small{
+	height:4em;
+}
+
+.button-lookAround {
+	color: white;
+	background-color: #accb12;
+}
+
+.button-sad {
+	background-color: #C10FB7;
+}
+
+.button-happy {
+	background-color: #FFDA0F;
+}
+
+.button-happy span:before {
+	content: ":D";
+	left: 30%;
+}
+
+.button-sad span:before {
+	content: ":(";
+	left: 40%;
+}
+
+.button-mood {
+	font-size: 5em;
+	font-family: Arial;
+	height: 300px;
+}
+
+.button-mood span:before {
+	position: absolute;
+	transform: rotate(90deg);
+}
+
+/**/
+.happyFace span:before {
+	content: ":D";
+}
+
+.sadFace span:before {
+	content: ":(";
+}
+
+.happyFace {
+	background-color: #FFDA0F;
+	float: right;
+}
+
+.sadFace {
+	float: left;
+}
+
+.sadFace, .happyFace {
+	width: 100%;
+	height: 300px;
+}
+
+.happyFace span {
+	left: 63%;
+}
+
+.sadFace span {
+	left: 20%;
+}
+
+.sadFace span, .happyFace span {
+	font-family: Arial;
+    position: absolute;
+	top: 40%;
+	display: block;
+	font-size: 5em;
+	transform: rotate(90deg);
+}
