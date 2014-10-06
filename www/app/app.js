@@ -16,44 +16,57 @@ angular.module("hotsthemoodApp", ["ionic"])
 
 .config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
-		.state('home', {
-			url: "/iam",
-			templateUrl: "app/home/home.html"
+		.state('share', {
+			abstract: true,
+			views: {
+				"tab-share": {
+					templateUrl: "app/share/share.html"
+				}
+			}
 		})
 
-
-		.state('at', {
-			url: "/iam/{mood}/at",
-			templateUrl: "app/home/at.html"
+		.state('share.mood', {
+			url: "/share/mood",
+			templateUrl: "app/share/mood.html"
 		})
 
-		.state('done', {
-			url: "/iam/{mood}/at/{location}",
-			templateUrl: "app/home/done.html"
+		.state('share.location', {
+			url: "/share/{mood}/location",
+			templateUrl: "app/share/location.html"
 		})
 
+		.state('share.message', {
+			url: "/share/{mood}/{location}/message",
+			templateUrl: "app/share/message.html"
+		})
 
-		.state('around', {
-			url: "/around",
-			templateUrl: "app/home/around.html"
+		.state('look', {
+			url: "/look",
+			views: {
+				"tab-look": {
+					templateUrl: "app/look/around.html"
+				}
+			}
 		});
 
 	// if none of the above states are matched use this as the fallback
-	$urlRouterProvider.otherwise('/iam');
+	$urlRouterProvider.otherwise('/share/mood');
 })
 
 
 
 .controller('AtController', ['$scope', '$stateParams', function($scope, $stateParams) {
+	console.log('AtController');
 	$scope.mood = $stateParams.mood;
 }])
 
 
 .controller('DoneController', ['$scope', '$stateParams', function($scope, $stateParams) {
+	console.log('DoneController');
 	console.log($stateParams);
 }])
 
 .controller('AroundController', ['$scope', '$stateParams', function($scope, $stateParams) {
-
+	console.log('AroundController');
 }]);
 
