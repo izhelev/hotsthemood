@@ -12,6 +12,13 @@
 	padding-right: 0.4em;
 }
 
+.locationTitle{
+	font-size: 2em;
+	line-height: 1em;
+	color:black;
+	text-align: center;
+}
+
 .button-mood-small {
 	height:4em;
 }
@@ -30,13 +37,15 @@
 }
 
 .button-happy span:before {
-	content: ":D";
+	content: ": )";
 	left: 30%;
+	font-weight: bold;
 }
 
 .button-sad span:before {
-	content: ":(";
-	left: 40%;
+	content: ": (";
+	left: 30%;
+	font-weight: bold;
 }
 
 .button-mood {

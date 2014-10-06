@@ -36,7 +36,7 @@ angular.module("hotsthemoodApp", ["ionic"])
 		})
 
 		.state('share.message', {
-			url: "/share/{mood}/{location}/message",
+			url: "/share/{mood}/{locationTitle}/message",
 			templateUrl: "app/share/message.html"
 		})
 
@@ -65,6 +65,7 @@ angular.module("hotsthemoodApp", ["ionic"])
 	console.log('DoneController');
 	console.log($stateParams);
 	$scope.mood = $stateParams.mood;
+	$scope.locationTitle = $stateParams.locationTitle;
 }])
 
 .controller('AroundController', ['$scope', '$stateParams', function($scope, $stateParams) {
