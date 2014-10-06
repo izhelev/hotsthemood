@@ -64,6 +64,7 @@ angular.module("hotsthemoodApp", ["ionic"])
 .controller('DoneController', ['$scope', '$stateParams', function($scope, $stateParams) {
 	console.log('DoneController');
 	console.log($stateParams);
+	$scope.mood = $stateParams.mood;
 }])
 
 .controller('AroundController', ['$scope', '$stateParams', function($scope, $stateParams) {
