@@ -19,6 +19,29 @@
 	text-align: center;
 }
 
+
+.successNotification{
+	text-align: center;
+}
+
+.successNotification > a 
+{
+	font-size:90px; 
+	color:green; 
+	text-align:center;
+}
+
+.tapHere {
+	text-align: center;
+	padding-top: 3em;
+}
+
+.tapHere span{
+	font-size: 4em;
+	color:lightgray;
+	opacity: 0.3;
+}
+
 .button-mood-small {
 	height:4em;
 }

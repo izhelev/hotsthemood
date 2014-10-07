@@ -1,5 +1,5 @@
 <ion-view ng-controller="DoneController">
-	<ion-content class="has-header center">
+	<ion-content ui-sref='share.mood' class="has-header center">
 		<div class="row">
 			<div class="col">
 				<div class="moodText" >
@@ -15,16 +15,31 @@
 		</div>
 		<div class="row">
 			<div class="col">
-				<div class="list">
-					
-						<a class="item item-thumbnail-left" ui-sref="share.message({locationTitle: 'The awesome event', mood: '{{mood}}'})">
+				<div class="list">					
+						<span class="item item-thumbnail-left">
 							<img src="cover.jpg">
 							<h2>Pretty Hate Machine</h2>
 							<p>Nine Inch Nails</p>
-						</a>
+						</span>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col">
+				<div class="successNotification">
+					<a class="ion-checkmark-round"></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<div class="tapHere">
+					<span>TAP ME</span>
+				</div>
+			</div>
+		</div>
+
 	</ion-content>
 </ion-view>
