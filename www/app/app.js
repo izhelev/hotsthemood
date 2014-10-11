@@ -59,6 +59,12 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	$urlRouterProvider.otherwise('/share/mood');
 })
 
+.config(function(ngGPlacesAPIProvider){
+	ngGPlacesAPIProvider.setDefaults({
+		radius:500,
+		nearbySearchKeys: ['name', 'reference', 'vicinity', 'photos']
+	});
+})
 
 
 .controller('LocationController', ['$scope', '$stateParams', 'shareData', 'locationHelper', 'ngGPlacesAPI',
@@ -71,7 +77,15 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 
 	ngGPlacesAPI.nearbySearch(location)
 		.then(function(data){
-			$scope.nearbyLocations = data;
+			$scope.nearbyLocations = [];
+			for(var i = 0; i< data.length; i++) {
+				$scope.nearbyLocations.push({
+					name: data[i].name,
+					reference: data[i].reference,
+					vicinity: data[i].vicinity,
+					photoUrl: (data[i].photos != undefined ? data[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) : '')
+				});
+			}
 		});
 
 	$scope.selectLocation = function(location) {
