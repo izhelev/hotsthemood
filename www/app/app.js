@@ -89,8 +89,17 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	$scope.location = shareData.location;
 }])
 
-.controller('SearchController', ['$scope', '$stateParams', function($scope, $stateParams) {
-	console.log('AroundController');
+.controller('SearchController', ['$scope', '$stateParams', 'locationHelper', 'ngGPlacesAPI',
+	function($scope, $stateParams, locationHelper, ngGPlacesAPI) {
+	console.log('SearchController');
+
+	var location = locationHelper.getLatestLocation();
+	console.log(location);
+
+	ngGPlacesAPI.nearbySearch(location)
+		.then(function(data){
+			$scope.nearbyLocations = data;
+		});
 }]);
 
 
