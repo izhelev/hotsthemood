@@ -2,6 +2,8 @@ angular.module("hotsthemoodApp")
 
 .factory('locationHelper', function() {
 
+	var lastKnownLocation = {};
+
 	var locationOptions = {
 		maximumAge: 15000,
 		timeout: 5000,
@@ -9,10 +11,10 @@ angular.module("hotsthemoodApp")
 	};
 
 	function locationSuccess(position) {
-		localStorage.setItem("latestKnownPosition", JSON.stringify({
+		lastKnownLocation = {
 			longitude: position.coords.longitude,
 			latitude: position.coords.latitude
-		}));
+		};
 	}
 
 
@@ -43,7 +45,7 @@ angular.module("hotsthemoodApp")
 			}
 		},
 		getLatestLocation: function() {
-			return JSON.parse(localStorage.getItem("latestKnownPosition"));
+			return lastKnownLocation;
 		}
 	};
 });
