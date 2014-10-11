@@ -6,6 +6,7 @@
 		<title></title>
 
 		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 
 		<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -30,18 +31,22 @@
 			<ion-nav-back-button class="button-clear">
 				<i class="ion-arrow-left-c"></i> Back
 			</ion-nav-back-button>
-			<h1 class="title">Hotsthemood</h1>
 		</ion-nav-bar>
 
-		<ion-tabs class="tabs-icon-top">
+		<ion-tabs class="tabs-icon-only">
 
-			<ion-tab title="Share" icon-on="ion-location" icon-off="ion-location" ui-sref="share.mood">
-				<ion-nav-view name="tab-share" animation="slide-left-right-ios7">
+			<ion-tab title="Check-in" icon-on="fa fa-map-marker" icon-off="fa fa-map-marker" ui-sref="share.mood">
+				<ion-nav-view name="tab-checkin" animation="slide-left-right-ios7">
 				</ion-nav-view>
 			</ion-tab>
 
-			<ion-tab title="Look around" icon-on="ion-eye" icon-off="ion-eye" ui-sref="look" >
-				<ion-nav-view name="tab-look" animation="slide-left-right-ios7">
+			<ion-tab title="Search" icon-on="fa fa-search" icon-off="fa fa-search" ui-sref="search" >
+				<ion-nav-view name="tab-search" animation="slide-left-right-ios7">
+				</ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="History" icon-on="fa fa-history" icon-off="fa fa-history" ui-sref="history" >
+				<ion-nav-view name="tab-history" animation="slide-left-right-ios7">
 				</ion-nav-view>
 			</ion-tab>
 

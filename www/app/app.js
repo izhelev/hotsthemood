@@ -25,7 +25,7 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 		.state('share', {
 			abstract: true,
 			views: {
-				"tab-share": {
+				"tab-checkin": {
 					templateUrl: "app/share/share.html"
 				}
 			}
@@ -46,11 +46,20 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 			templateUrl: "app/share/message.html"
 		})
 
-		.state('look', {
-			url: "/look",
+		.state('search', {
+			url: "/search",
 			views: {
-				"tab-look": {
-					templateUrl: "app/look/around.html"
+				"tab-search": {
+					templateUrl: "app/search/search.html"
+				}
+			}
+		})
+
+		.state('history', {
+			url: "/history",
+			views: {
+				"tab-history": {
+					templateUrl: "app/history/history.html"
 				}
 			}
 		});

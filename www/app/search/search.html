@@ -1,0 +1,11 @@
+<ion-view ng-controller="SearchController" title="Search">
+	<ion-content>
+		<div class="list">
+			<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left">
+				<img src="cover.jpg">
+				<h2>{{item.name}}</h2>
+				<p>{{item.vicinity}}</p>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>
