@@ -1,11 +1,11 @@
 angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 
-.run(['$ionicPlatform', '$timeout', 'locationHelper', function($ionicPlatform, $timeout, locationHelper) {
+.run(['$ionicPlatform', '$timeout', 'locationHelper', 'deviceIdHelper', function($ionicPlatform, $timeout, locationHelper, deviceIdHelper) {
 	$ionicPlatform.ready(function() {
-    
-    	if(window.cordova && window.cordova.plugins.Keyboard) {
-    		cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    	}
+
+		if(window.cordova && window.cordova.plugins.Keyboard) {
+			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+		}
 
 		if(window.StatusBar) {
 			// org.apache.cordova.statusbar required
@@ -14,6 +14,7 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	});
 
 	locationHelper.addWatcher();
+	deviceIdHelper.createIfNotExists();
 }])
 
 .factory('shareData', function() {
