@@ -76,26 +76,32 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 })
 
 
-.controller('LocationController', ['$scope', '$stateParams', 'shareData', 'locationHelper', 'ngGPlacesAPI',
-	function($scope, $stateParams, shareData, locationHelper, ngGPlacesAPI) {
+.controller('LocationController', ['$scope', '$stateParams', '$ionicLoading', 'shareData', 'locationHelper', 'ngGPlacesAPI',
+	function($scope, $stateParams, $ionicLoading, shareData, locationHelper, ngGPlacesAPI) {
 
 	console.log('LocationController');
+	$ionicLoading.show({
+		template: '<i class="icon loadingIndicator ion-looping"></i>'
+	});
 
-	var location = locationHelper.getLatestLocation();
-	console.log(location);
+	locationHelper.getLatestLocation(function(location) {
+		console.log(location);
 
-	ngGPlacesAPI.nearbySearch(location)
-		.then(function(data){
-			$scope.nearbyLocations = [];
-			for(var i = 0; i< data.length; i++) {
-				$scope.nearbyLocations.push({
-					name: data[i].name,
-					reference: data[i].reference,
-					vicinity: data[i].vicinity,
-					photoUrl: (data[i].photos != undefined ? data[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) : '')
-				});
-			}
-		});
+		ngGPlacesAPI.nearbySearch(location)
+			.then(function(data){
+				$scope.nearbyLocations = [];
+				for(var i = 0; i< data.length; i++) {
+					$scope.nearbyLocations.push({
+						name: data[i].name,
+						reference: data[i].reference,
+						vicinity: data[i].vicinity,
+						photoUrl: (data[i].photos != undefined ? data[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) : '')
+					});
+				}
+				$ionicLoading.hide();
+			});
+
+	});
 
 	$scope.selectLocation = function(location) {
 		shareData.location = location;
@@ -112,17 +118,24 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	$scope.location = shareData.location;
 }])
 
-.controller('SearchController', ['$scope', '$stateParams', 'locationHelper', 'ngGPlacesAPI',
-	function($scope, $stateParams, locationHelper, ngGPlacesAPI) {
+.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', 'locationHelper', 'ngGPlacesAPI',
+	function($scope, $stateParams, $ionicLoading, locationHelper, ngGPlacesAPI) {
 	console.log('SearchController');
+	$ionicLoading.show({
+		template: '<i class="icon loadingIndicator ion-looping"></i>'
+	});
 
-	var location = locationHelper.getLatestLocation();
-	console.log(location);
+	locationHelper.getLatestLocation(function(location) {
+ 		$scope.location = location;
 
-	ngGPlacesAPI.nearbySearch(location)
-		.then(function(data){
-			$scope.nearbyLocations = data;
-		});
+		console.log(location);
+
+		ngGPlacesAPI.nearbySearch($scope.location)
+			.then(function(data){
+				$scope.nearbyLocations = data;
+				$ionicLoading.hide();
+			});
+	});
 }]);
 
 

@@ -44,8 +44,17 @@ angular.module("hotsthemoodApp")
 				console.log('Geolocation is not supported by this browser.');
 			}
 		},
-		getLatestLocation: function() {
-			return lastKnownLocation;
+		getLatestLocation: function(callback) {
+			function timeout() {
+				setTimeout(function () {
+					if(lastKnownLocation.hasOwnProperty('longitude')) {
+						callback(lastKnownLocation);
+					} else {
+						timeout();
+					}
+				}, 1000);
+			}
+			timeout();
 		}
 	};
 });

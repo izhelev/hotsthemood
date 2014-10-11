@@ -31,6 +31,10 @@
 	text-align:center;
 }
 
+.loadingIndicator {
+	font-size: 3em;
+}
+
 .tapHere {
 	text-align: center;
 }
