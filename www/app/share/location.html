@@ -17,10 +17,11 @@
 							<i class="icon ion-search placeholder-icon"></i>
 							<input type="text" placeholder="Search">
 						</label>
-						<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left" nav-clear ui-sref="share.message({location: {{item}}, mood: '{{mood}}'})" ng-click="selectLocation(item)">
+						<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left item-icon-right" nav-clear ui-sref="share.message({location: {{item}}, mood: '{{mood}}'})" ng-click="selectLocation(item)">
 							<img src="{{item.photoUrl}}">
 							<h2>{{item.name}}</h2>
 							<p>{{item.vicinity}}</p>
+							<i class="icon fa fa-angle-right"></i>
 						</a>
 					</div>
 				</div>
