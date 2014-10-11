@@ -1,4 +1,4 @@
-<ion-view ng-controller="DoneController">
+<ion-view ng-controller="MessageController">
 	<ion-content nav-clear ui-sref='share.mood' class="center">
 		<div class="row">
 			<div class="col">
@@ -16,10 +16,10 @@
 		<div class="row">
 			<div class="col">
 				<div class="list">					
-						<span class="item item-thumbnail-left">
+						<span class="item item-thumbnail-left" ng-model="location">
 							<img src="cover.jpg">
-							<h2>Pretty Hate Machine</h2>
-							<p>Nine Inch Nails</p>
+							<h2>{{location.name}}</h2>
+							<p>{{location.vicinity}}</p>
 						</span>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="tapHere">
-					<span>TAP ME</span>
+					<span>Thanks for sharing!</span>
 				</div>
 			</div>
 		</div>

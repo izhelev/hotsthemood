@@ -1,6 +1,6 @@
-angular.module("hotsthemoodApp", ["ionic"])
+angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 
-.run(function($ionicPlatform, $timeout) {
+.run(['$ionicPlatform', '$timeout', 'locationHelper', function($ionicPlatform, $timeout, locationHelper) {
 	$ionicPlatform.ready(function() {
     
     	if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -12,6 +12,12 @@ angular.module("hotsthemoodApp", ["ionic"])
 			StatusBar.styleDefault();
 		}
 	});
+
+	locationHelper.addWatcher();
+}])
+
+.factory('shareData', function() {
+	return {};
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -36,7 +42,7 @@ angular.module("hotsthemoodApp", ["ionic"])
 		})
 
 		.state('share.message', {
-			url: "/share/{mood}/{locationTitle}/message",
+			url: "/share/{mood}/message",
 			templateUrl: "app/share/message.html"
 		})
 
@@ -55,20 +61,36 @@ angular.module("hotsthemoodApp", ["ionic"])
 
 
 
-.controller('AtController', ['$scope', '$stateParams', function($scope, $stateParams) {
-	console.log('AtController');
+.controller('LocationController', ['$scope', '$stateParams', 'shareData', 'locationHelper', 'ngGPlacesAPI',
+	function($scope, $stateParams, shareData, locationHelper, ngGPlacesAPI) {
+
+	console.log('LocationController');
+
+	var location = locationHelper.getLatestLocation();
+	console.log(location);
+
+	ngGPlacesAPI.nearbySearch(location)
+		.then(function(data){
+			$scope.nearbyLocations = data;
+		});
+
+	$scope.selectLocation = function(location) {
+		shareData.location = location;
+	};
+
 	$scope.mood = $stateParams.mood;
 }])
 
 
-.controller('DoneController', ['$scope', '$stateParams', function($scope, $stateParams) {
-	console.log('DoneController');
+.controller('MessageController', ['$scope', '$stateParams', 'shareData', function($scope, $stateParams, shareData) {
+	console.log('MessageController');
 	console.log($stateParams);
 	$scope.mood = $stateParams.mood;
-	$scope.locationTitle = $stateParams.locationTitle;
+	$scope.location = shareData.location;
 }])
 
-.controller('AroundController', ['$scope', '$stateParams', function($scope, $stateParams) {
+.controller('SearchController', ['$scope', '$stateParams', function($scope, $stateParams) {
 	console.log('AroundController');
 }]);
+
 

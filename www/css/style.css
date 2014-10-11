@@ -33,13 +33,11 @@
 
 .tapHere {
 	text-align: center;
-	padding-top: 3em;
 }
 
 .tapHere span{
-	font-size: 4em;
-	color:lightgray;
-	opacity: 0.3;
+	font-size: 2em;
+	color: lightgray;
 }
 
 .button-mood-small {

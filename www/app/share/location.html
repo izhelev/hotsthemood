@@ -1,4 +1,4 @@
-<ion-view ng-controller="AtController">
+<ion-view ng-controller="LocationController">
 	<ion-content>
 			<div class="row">
 				<div class="col col-75">
@@ -17,10 +17,10 @@
 							<i class="icon ion-search placeholder-icon"></i>
 							<input type="text" placeholder="Search">
 						</label>
-						<a ng-repeat="i in [1,2,3,4,5,6]" class="item item-thumbnail-left" nav-clear ui-sref="share.message({locationTitle: 'The awesome event', mood: '{{mood}}'})">
+						<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left" nav-clear ui-sref="share.message({location: {{item}}, mood: '{{mood}}'})" ng-click="selectLocation(item)">
 							<img src="cover.jpg">
-							<h2>Pretty Hate Machine</h2>
-							<p>Nine Inch Nails</p>
+							<h2>{{item.name}}</h2>
+							<p>{{item.vicinity}}</p>
 						</a>
 					</div>
 				</div>
