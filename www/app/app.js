@@ -77,8 +77,8 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 })
 
 
-.controller('LocationController', ['$scope', '$stateParams', '$ionicLoading', 'shareData', 'locationHelper', 'ngGPlacesAPI',
-	function($scope, $stateParams, $ionicLoading, shareData, locationHelper, ngGPlacesAPI) {
+.controller('LocationController', ['$scope', '$stateParams', '$http', '$ionicLoading', 'shareData', 'locationHelper', 'deviceIdHelper', 'ngGPlacesAPI',
+	function($scope, $stateParams, $http, $ionicLoading, shareData, locationHelper, deviceIdHelper, ngGPlacesAPI) {
 
 	console.log('LocationController');
 	$ionicLoading.show({
@@ -96,7 +96,7 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 						name: data[i].name,
 						reference: data[i].reference,
 						vicinity: data[i].vicinity,
-						photoUrl: (data[i].photos != undefined ? data[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) : '')
+						photoUrl: (data[i].photos != undefined ? data[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) : '#')
 					});
 				}
 				$ionicLoading.hide();
@@ -105,6 +105,24 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	});
 
 	$scope.selectLocation = function(location) {
+		$ionicLoading.show({
+			template: '<i class="icon loadingIndicator ion-looping"></i>'
+		});
+
+		var deviceId = deviceIdHelper.get();
+
+		$http.put('http://localhost:49968/checkin', {
+			DeviceId: deviceId,
+			LocationReferenceId: location.reference,
+			Mood: $stateParams.mood
+		})
+		.success(function(data, status, headers, config) {
+			$ionicLoading.hide();
+		})
+		.error(function(data, status, headers, config) {
+			$ionicLoading.hide();
+		});
+
 		shareData.location = location;
 	};
 
@@ -119,8 +137,8 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	$scope.location = shareData.location;
 }])
 
-.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', 'locationHelper', 'ngGPlacesAPI',
-	function($scope, $stateParams, $ionicLoading, locationHelper, ngGPlacesAPI) {
+.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'locationHelper', 'ngGPlacesAPI',
+	function($scope, $stateParams, $ionicLoading, $http, locationHelper, ngGPlacesAPI) {
 	console.log('SearchController');
 	$ionicLoading.show({
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
@@ -131,10 +149,27 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 
 		console.log(location);
 
+		var nearbyLocations = [];
 		ngGPlacesAPI.nearbySearch($scope.location)
 			.then(function(data){
-				$scope.nearbyLocations = data;
-				$ionicLoading.hide();
+				for(var i = 0; i< data.length; i++) {
+					nearbyLocations.push({
+						name: data[i].name,
+						reference: data[i].reference,
+						vicinity: data[i].vicinity,
+						photoUrl: (data[i].photos != undefined ? data[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) : '#')
+					});
+				}
+
+
+				$http.put('http://localhost:49968/happinessquery', {Locations: nearbyLocations})
+				.success(function(data, status, headers, config) {
+					$scope.nearbyLocations = data.locations;
+					$ionicLoading.hide();
+				})
+				.error(function(data, status, headers, config) {
+					$ionicLoading.hide();
+				});
 			});
 	});
 }]);
