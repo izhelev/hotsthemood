@@ -18,7 +18,7 @@
 							<input type="text" placeholder="Search">
 						</label>
 						<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left item-icon-right" nav-clear ui-sref="share.message({location: {{item}}, mood: '{{mood}}'})" ng-click="selectLocation(item)">
-							<img src="{{item.photoUrl}}">
+							<img ng-attr-src="{{item.photoUrl}}">
 							<h2>{{item.name}}</h2>
 							<p>{{item.vicinity}}</p>
 							<i class="icon fa fa-angle-right"></i>
