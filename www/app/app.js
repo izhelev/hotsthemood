@@ -72,7 +72,7 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 .config(function(ngGPlacesAPIProvider){
 	ngGPlacesAPIProvider.setDefaults({
 		radius:500,
-		nearbySearchKeys: ['name', 'reference', 'vicinity', 'photos']
+		nearbySearchKeys: ['name', 'icon', 'place_id', 'vicinity', 'photos']
 	});
 })
 
@@ -94,9 +94,9 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 				for(var i = 0; i< data.length; i++) {
 					$scope.nearbyLocations.push({
 						name: data[i].name,
-						reference: data[i].reference,
+						reference: data[i].place_id,
 						vicinity: data[i].vicinity,
-						photoUrl: (data[i].photos != undefined ? data[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) : '#')
+						photoUrl: data[i].icon
 					});
 				}
 				$ionicLoading.hide();
@@ -111,11 +111,21 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 
 		var deviceId = deviceIdHelper.get();
 
-		$http.put('http://localhost:49968/checkin', {
-			DeviceId: deviceId,
-			LocationReferenceId: location.reference,
-			Mood: $stateParams.mood
-		})
+		var request = {
+			checkin: {
+				deviceId: deviceId,
+				locationReferenceId: location.reference,
+				mood: $stateParams.mood,
+				location: {
+					name: location.name,
+					reference: location.reference,
+					vicinity: location.vicinity,
+					photoUrl: location.photoUrl
+				}
+			}
+		};
+
+		$http.put('http://localhost:49968/checkin', request)
 		.success(function(data, status, headers, config) {
 			$ionicLoading.hide();
 		})
@@ -155,9 +165,9 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 				for(var i = 0; i< data.length; i++) {
 					nearbyLocations.push({
 						name: data[i].name,
-						reference: data[i].reference,
+						reference: data[i].place_id,
 						vicinity: data[i].vicinity,
-						photoUrl: (data[i].photos != undefined ? data[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}) : '#')
+						photoUrl: data[i].icon
 					});
 				}
 
@@ -172,6 +182,30 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 				});
 			});
 	});
+}])
+
+
+.controller('HistoryController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'deviceIdHelper', 'ngGPlacesAPI',
+	function($scope, $stateParams, $ionicLoading, $http, deviceIdHelper, ngGPlacesAPI) {
+	console.log('SearchController');
+	$ionicLoading.show({
+		template: '<i class="icon loadingIndicator ion-looping"></i>'
+	});
+
+	$http.get('http://localhost:49968/checkinHistory/' + deviceIdHelper.get())
+		.success(function(data, status, headers, config) {
+			$scope.checkinHistory = [];
+			for(var i = 0; i < data.checkins.length; i++) {
+				var checkin = data.checkins[i];
+				checkin.timestamp = moment(checkin.timestamp).fromNow();
+				$scope.checkinHistory.push(checkin);
+			}
+			$ionicLoading.hide();
+		})
+		.error(function(data, status, headers, config) {
+			$ionicLoading.hide();
+		});
+
 }]);
 
 
