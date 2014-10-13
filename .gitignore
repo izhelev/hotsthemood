@@ -11,3 +11,8 @@ Thumbs.db
 # IDE files #
 #############
 *.sublime-workspace
+
+# Packages #
+############
+bower_components
+node_modules
