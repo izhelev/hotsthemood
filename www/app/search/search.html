@@ -2,10 +2,10 @@
 	<ion-content>
 		<div class="list">
 			<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left item-icon-right item-badge-right">
-				<span class="badge badge-assertive">{{ item.rating }}</span>
 				<img  ng-attr-src="{{item.photoUrl}}">
 				<h2>{{item.name}}</h2>
 				<p>{{item.vicinity}}</p>
+				<span class="badge badge-assertive">{{ item.rating }}</span>
 				<i class="icon fa fa-angle-right"></i>
 			</a>
 		</div>
