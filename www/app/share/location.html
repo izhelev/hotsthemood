@@ -13,10 +13,10 @@
 			<div class="row">
 				<div class="col">
 					<div class="list">
-						<label class="item item-input">
+						<!-- <label class="item item-input">
 							<i class="icon ion-search placeholder-icon"></i>
 							<input type="text" placeholder="Search">
-						</label>
+						</label> -->
 						<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left item-icon-right" nav-clear ui-sref="share.message({location: {{item}}, mood: '{{mood}}'})" ng-click="selectLocation(item)">
 							<img ng-attr-src="{{item.photoUrl}}">
 							<h2>{{item.name}}</h2>
