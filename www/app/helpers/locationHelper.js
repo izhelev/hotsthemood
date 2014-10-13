@@ -15,6 +15,7 @@ angular.module("hotsthemoodApp")
 			longitude: position.coords.longitude,
 			latitude: position.coords.latitude
 		};
+		console.log('locationHelper : got location ' + lastKnownLocation);
 	}
 
 
