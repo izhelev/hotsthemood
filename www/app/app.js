@@ -77,8 +77,8 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 })
 
 
-.controller('LocationController', ['$scope', '$stateParams', '$http', '$ionicLoading', 'shareData', 'locationHelper', 'deviceIdHelper', 'ngGPlacesAPI',
-	function($scope, $stateParams, $http, $ionicLoading, shareData, locationHelper, deviceIdHelper, ngGPlacesAPI) {
+.controller('LocationController', ['$scope', '$stateParams', '$http', '$ionicLoading', 'shareData', 'locationHelper', 'deviceIdHelper', 'ngGPlacesAPI', 'APP_CONFIG',
+	function($scope, $stateParams, $http, $ionicLoading, shareData, locationHelper, deviceIdHelper, ngGPlacesAPI, app_config) {
 
 	console.log('LocationController');
 	$ionicLoading.show({
@@ -125,7 +125,7 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 			}
 		};
 
-		$http.put('http://localhost:49968/checkin', request)
+		$http.put(app_config.apiUrlBase + '/checkin', request)
 		.success(function(data, status, headers, config) {
 			$ionicLoading.hide();
 		})
@@ -147,8 +147,8 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	$scope.location = shareData.location;
 }])
 
-.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'locationHelper', 'ngGPlacesAPI',
-	function($scope, $stateParams, $ionicLoading, $http, locationHelper, ngGPlacesAPI) {
+.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'locationHelper', 'ngGPlacesAPI', 'APP_CONFIG',
+	function($scope, $stateParams, $ionicLoading, $http, locationHelper, ngGPlacesAPI, app_config) {
 	console.log('SearchController');
 	$ionicLoading.show({
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
@@ -172,7 +172,7 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 				}
 
 
-				$http.put('http://localhost:49968/happinessquery', {Locations: nearbyLocations})
+				$http.put(app_config.apiUrlBase + '/happinessquery', {Locations: nearbyLocations})
 				.success(function(data, status, headers, config) {
 					$scope.nearbyLocations = data.locations;
 					$ionicLoading.hide();
@@ -185,14 +185,14 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 }])
 
 
-.controller('HistoryController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'deviceIdHelper', 'ngGPlacesAPI',
-	function($scope, $stateParams, $ionicLoading, $http, deviceIdHelper, ngGPlacesAPI) {
+.controller('HistoryController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'deviceIdHelper', 'ngGPlacesAPI', 'APP_CONFIG',
+	function($scope, $stateParams, $ionicLoading, $http, deviceIdHelper, ngGPlacesAPI, app_config) {
 	console.log('SearchController');
 	$ionicLoading.show({
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
 	});
 
-	$http.get('http://localhost:49968/checkinHistory/' + deviceIdHelper.get())
+	$http.get(app_config.apiUrlBase + '/checkinHistory/' + deviceIdHelper.get())
 		.success(function(data, status, headers, config) {
 			$scope.checkinHistory = [];
 			for(var i = 0; i < data.checkins.length; i++) {
