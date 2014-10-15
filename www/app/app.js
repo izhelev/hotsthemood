@@ -88,21 +88,16 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	locationHelper.getLatestLocation(function(location) {
 		console.log(location);
 
-		ngGPlacesAPI.nearbySearch(location)
-			.then(function(data){
-				$scope.nearbyLocations = [];
-				for(var i = 0; i< data.length; i++) {
-					$scope.nearbyLocations.push({
-						name: data[i].name,
-						reference: data[i].place_id,
-						vicinity: data[i].vicinity,
-						photoUrl: data[i].icon
-					});
-				}
-				$ionicLoading.hide();
-			});
+		$http.put(app_config.apiUrlBase + '/situation', {Latitude: location.latitude, Longitude: location.longitude})
+				.success(function(data, status, headers, config) {
+					$scope.nearbyLocations = data.locations;
+					$ionicLoading.hide();
+				})
+				.error(function(data, status, headers, config) {
+					$ionicLoading.hide();
+				});
+		});
 
-	});
 
 	$scope.selectLocation = function(location) {
 		$ionicLoading.show({
@@ -172,7 +167,7 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 				}
 
 
-				$http.put(app_config.apiUrlBase + '/happinessquery', {Locations: nearbyLocations})
+				$http.put(app_config.apiUrlBase + '/happinessquery', {Latitude: location.latitude, Longitude: location.longitude})
 				.success(function(data, status, headers, config) {
 					$scope.nearbyLocations = data.locations;
 					$ionicLoading.hide();
@@ -207,5 +202,3 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 		});
 
 }]);
-
-
