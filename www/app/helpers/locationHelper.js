@@ -7,7 +7,7 @@ angular.module("hotsthemoodApp")
 	var locationOptions = {
 		maximumAge: 15000,
 		timeout: 5000,
-		enableHighAccuracy: true 
+		enableHighAccuracy: true
 	};
 
 	function locationSuccess(position) {

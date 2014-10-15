@@ -1,4 +1,4 @@
-angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
+angular.module("hotsthemoodApp", ['ionic'])
 
 .run(['$ionicPlatform', '$timeout', 'locationHelper', 'deviceIdHelper', function($ionicPlatform, $timeout, locationHelper, deviceIdHelper) {
 	$ionicPlatform.ready(function() {
@@ -69,16 +69,8 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	$urlRouterProvider.otherwise('/share/mood');
 })
 
-.config(function(ngGPlacesAPIProvider){
-	ngGPlacesAPIProvider.setDefaults({
-		radius:500,
-		nearbySearchKeys: ['name', 'icon', 'place_id', 'vicinity', 'photos']
-	});
-})
-
-
-.controller('LocationController', ['$scope', '$stateParams', '$http', '$ionicLoading', 'shareData', 'locationHelper', 'deviceIdHelper', 'ngGPlacesAPI', 'APP_CONFIG',
-	function($scope, $stateParams, $http, $ionicLoading, shareData, locationHelper, deviceIdHelper, ngGPlacesAPI, app_config) {
+.controller('LocationController', ['$scope', '$stateParams', '$http', '$ionicLoading', 'shareData', 'locationHelper', 'deviceIdHelper',  'APP_CONFIG',
+	function($scope, $stateParams, $http, $ionicLoading, shareData, locationHelper, deviceIdHelper,app_config) {
 
 	console.log('LocationController');
 	$ionicLoading.show({
@@ -142,8 +134,8 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 	$scope.location = shareData.location;
 }])
 
-.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'locationHelper', 'ngGPlacesAPI', 'APP_CONFIG',
-	function($scope, $stateParams, $ionicLoading, $http, locationHelper, ngGPlacesAPI, app_config) {
+.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'locationHelper', 'APP_CONFIG',
+	function($scope, $stateParams, $ionicLoading, $http, locationHelper, app_config) {
 	console.log('SearchController');
 	$ionicLoading.show({
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
@@ -154,34 +146,20 @@ angular.module("hotsthemoodApp", ['ionic', 'ngGPlaces'])
 
 		console.log(location);
 
-		var nearbyLocations = [];
-		ngGPlacesAPI.nearbySearch($scope.location)
-			.then(function(data){
-				for(var i = 0; i< data.length; i++) {
-					nearbyLocations.push({
-						name: data[i].name,
-						reference: data[i].place_id,
-						vicinity: data[i].vicinity,
-						photoUrl: data[i].icon
-					});
-				}
-
-
-				$http.put(app_config.apiUrlBase + '/happinessquery', {Latitude: location.latitude, Longitude: location.longitude})
-				.success(function(data, status, headers, config) {
-					$scope.nearbyLocations = data.locations;
-					$ionicLoading.hide();
-				})
-				.error(function(data, status, headers, config) {
-					$ionicLoading.hide();
-				});
-			});
+		$http.put(app_config.apiUrlBase + '/happinessquery', {Latitude: location.latitude, Longitude: location.longitude})
+		.success(function(data, status, headers, config) {
+			$scope.nearbyLocations = data.locations;
+			$ionicLoading.hide();
+		})
+		.error(function(data, status, headers, config) {
+			$ionicLoading.hide();
+		});
 	});
 }])
 
 
-.controller('HistoryController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'deviceIdHelper', 'ngGPlacesAPI', 'APP_CONFIG',
-	function($scope, $stateParams, $ionicLoading, $http, deviceIdHelper, ngGPlacesAPI, app_config) {
+.controller('HistoryController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'deviceIdHelper', 'APP_CONFIG',
+	function($scope, $stateParams, $ionicLoading, $http, deviceIdHelper, app_config) {
 	console.log('SearchController');
 	$ionicLoading.show({
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
