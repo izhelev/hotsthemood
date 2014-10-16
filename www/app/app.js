@@ -1,6 +1,8 @@
 angular.module("hotsthemoodApp", ['ionic'])
 
 .run(['$ionicPlatform', '$timeout', 'locationHelper', 'deviceIdHelper', function($ionicPlatform, $timeout, locationHelper, deviceIdHelper) {
+	mixpanel.track("App Load");
+	ga('send', 'AppLoad');
 	$ionicPlatform.ready(function() {
 
 		if(window.cordova && window.cordova.plugins.Keyboard) {
