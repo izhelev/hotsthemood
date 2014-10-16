@@ -72,8 +72,8 @@ angular.module("hotsthemoodApp", ['ionic'])
 	$urlRouterProvider.otherwise('/share/mood');
 })
 
-.controller('LocationController', ['$scope', '$stateParams', '$http', '$ionicLoading', 'shareData', 'locationHelper', 'deviceIdHelper',  'APP_CONFIG',
-	function($scope, $stateParams, $http, $ionicLoading, shareData, locationHelper, deviceIdHelper,app_config) {
+.controller('LocationController', ['$scope', '$stateParams', '$ionicLoading', 'shareData', 'locationHelper', 'deviceIdHelper',  'serviceProxy',
+	function($scope, $stateParams, $ionicLoading, shareData, locationHelper, deviceIdHelper, serviceProxy) {
 
 	console.log('LocationController');
 	mixpanel.track("Locations View");
@@ -86,14 +86,17 @@ angular.module("hotsthemoodApp", ['ionic'])
 	locationHelper.getLatestLocation(function(location) {
 		console.log(location);
 
-		$http.put(app_config.apiUrlBase + '/situation', {Latitude: location.latitude, Longitude: location.longitude})
-				.success(function(data, status, headers, config) {
-					$scope.nearbyLocations = data.locations;
-					$ionicLoading.hide();
-				})
-				.error(function(data, status, headers, config) {
-					$ionicLoading.hide();
-				});
+		serviceProxy.situation({
+			Latitude: location.latitude,
+			Longitude: location.longitude
+		})
+		.success(function(data, status, headers, config) {
+			$scope.nearbyLocations = data.locations;
+			$ionicLoading.hide();
+		})
+		.error(function(data, status, headers, config) {
+			$ionicLoading.hide();
+		});
 		});
 
 
@@ -119,7 +122,7 @@ angular.module("hotsthemoodApp", ['ionic'])
 			}
 		};
 
-		$http.put(app_config.apiUrlBase + '/checkin', request)
+		serviceProxy.checkin(request)
 		.success(function(data, status, headers, config) {
 			mixpanel.track("Location Checkin");
 			ga('send', 'LocationCheckin');
@@ -143,8 +146,8 @@ angular.module("hotsthemoodApp", ['ionic'])
 	$scope.location = shareData.location;
 }])
 
-.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'locationHelper', 'APP_CONFIG',
-	function($scope, $stateParams, $ionicLoading, $http, locationHelper, app_config) {
+.controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', 'locationHelper', 'serviceProxy',
+	function($scope, $stateParams, $ionicLoading, locationHelper, serviceProxy) {
 
 	console.log('SearchController');
 	mixpanel.track("Search View");
@@ -160,7 +163,10 @@ angular.module("hotsthemoodApp", ['ionic'])
 
 		console.log(location);
 
-		$http.put(app_config.apiUrlBase + '/happinessquery', {Latitude: location.latitude, Longitude: location.longitude})
+		serviceProxy.happinessquery({
+			Latitude: location.latitude,
+			Longitude: location.longitude
+		})
 		.success(function(data, status, headers, config) {
 			$scope.nearbyLocations = data.locations;
 			$ionicLoading.hide();
@@ -172,8 +178,8 @@ angular.module("hotsthemoodApp", ['ionic'])
 }])
 
 
-.controller('HistoryController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'deviceIdHelper', 'APP_CONFIG',
-	function($scope, $stateParams, $ionicLoading, $http, deviceIdHelper, app_config) {
+.controller('HistoryController', ['$scope', '$stateParams', '$ionicLoading', 'deviceIdHelper', 'serviceProxy',
+	function($scope, $stateParams, $ionicLoading, deviceIdHelper, serviceProxy) {
 
 	console.log('SearchController');
 
@@ -184,7 +190,7 @@ angular.module("hotsthemoodApp", ['ionic'])
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
 	});
 
-	$http.get(app_config.apiUrlBase + '/checkinHistory/' + deviceIdHelper.get())
+	serviceProxy.checkinHistory(deviceIdHelper.get())
 		.success(function(data, status, headers, config) {
 			$scope.checkinHistory = [];
 			for(var i = 0; i < data.checkins.length; i++) {
