@@ -178,6 +178,11 @@ angular.module("hotsthemoodApp", ['ionic'])
 			$ionicLoading.hide();
 		});
 	});
+
+	$scope.selectLocation = function(location) {
+		mixpanel.track("Location Details", location);
+		ga('send', 'LocationDetails');
+	};
 }])
 
 

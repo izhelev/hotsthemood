@@ -1,7 +1,7 @@
 <ion-view ng-controller="SearchController" title="Search">
 	<ion-content>
 		<div class="list">
-			<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left item-icon-right item-badge-right">
+			<a ng-repeat="item in nearbyLocations" class="item item-thumbnail-left item-icon-right item-badge-right" ng-click="selectLocation(item)">
 				<img  ng-attr-src="{{item.photoUrl}}">
 				<h2>{{item.name}}</h2>
 				<p>{{item.vicinity}}</p>
