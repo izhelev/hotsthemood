@@ -16,8 +16,8 @@ angular.module("hotsthemoodApp", ['ionic'])
 	});
 
 	locationHelper.addWatcher();
-	deviceIdHelper.createIfNotExists(function() {
-		mixpanel.track("DeviceId Created");
+	deviceIdHelper.createIfNotExists(function(deviceId) {
+		mixpanel.track("DeviceId Created", { deviceId: deviceId });
 		ga('send', 'DeviceIdCreated');
 	});
 }])
@@ -126,7 +126,7 @@ angular.module("hotsthemoodApp", ['ionic'])
 
 		serviceProxy.checkin(request)
 		.success(function(data, status, headers, config) {
-			mixpanel.track("Location Checkin");
+			mixpanel.track("Location Checkin", request);
 			ga('send', 'LocationCheckin');
 			$ionicLoading.hide();
 		})
@@ -152,8 +152,6 @@ angular.module("hotsthemoodApp", ['ionic'])
 	function($scope, $stateParams, $ionicLoading, locationHelper, serviceProxy) {
 
 	console.log('SearchController');
-	mixpanel.track("Search View");
-	ga('send', 'SearchView');
 
 
 	$ionicLoading.show({
@@ -162,6 +160,9 @@ angular.module("hotsthemoodApp", ['ionic'])
 
 	locationHelper.getLatestLocation(function(location) {
  		$scope.location = location;
+
+		mixpanel.track("Search View", location);
+		ga('send', 'SearchView');
 
 		console.log(location);
 

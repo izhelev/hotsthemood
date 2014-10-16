@@ -5,8 +5,9 @@ angular.module("hotsthemoodApp")
 	return {
 		createIfNotExists: function(onCreation) {
 			if(!localStorage.getItem('deviceId')) {
-				localStorage.setItem('deviceId', Math.uuid());
-				onCreation();
+				var deviceId = Math.uuid();
+				localStorage.setItem('deviceId', deviceId);
+				onCreation(deviceId);
 			}
 		},
 		get: function() {
