@@ -14,7 +14,10 @@ angular.module("hotsthemoodApp", ['ionic'])
 	});
 
 	locationHelper.addWatcher();
-	deviceIdHelper.createIfNotExists();
+	deviceIdHelper.createIfNotExists(function() {
+		mixpanel.track("DeviceId Created");
+		ga('send', 'DeviceIdCreated');
+	});
 }])
 
 .factory('shareData', function() {
@@ -73,6 +76,9 @@ angular.module("hotsthemoodApp", ['ionic'])
 	function($scope, $stateParams, $http, $ionicLoading, shareData, locationHelper, deviceIdHelper,app_config) {
 
 	console.log('LocationController');
+	mixpanel.track("Locations View");
+	ga('send', 'LocationsView');
+
 	$ionicLoading.show({
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
 	});
@@ -92,6 +98,7 @@ angular.module("hotsthemoodApp", ['ionic'])
 
 
 	$scope.selectLocation = function(location) {
+
 		$ionicLoading.show({
 			template: '<i class="icon loadingIndicator ion-looping"></i>'
 		});
@@ -114,6 +121,8 @@ angular.module("hotsthemoodApp", ['ionic'])
 
 		$http.put(app_config.apiUrlBase + '/checkin', request)
 		.success(function(data, status, headers, config) {
+			mixpanel.track("Location Checkin");
+			ga('send', 'LocationCheckin');
 			$ionicLoading.hide();
 		})
 		.error(function(data, status, headers, config) {
@@ -136,7 +145,12 @@ angular.module("hotsthemoodApp", ['ionic'])
 
 .controller('SearchController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'locationHelper', 'APP_CONFIG',
 	function($scope, $stateParams, $ionicLoading, $http, locationHelper, app_config) {
+
 	console.log('SearchController');
+	mixpanel.track("Search View");
+	ga('send', 'SearchView');
+
+
 	$ionicLoading.show({
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
 	});
@@ -160,7 +174,12 @@ angular.module("hotsthemoodApp", ['ionic'])
 
 .controller('HistoryController', ['$scope', '$stateParams', '$ionicLoading', '$http', 'deviceIdHelper', 'APP_CONFIG',
 	function($scope, $stateParams, $ionicLoading, $http, deviceIdHelper, app_config) {
+
 	console.log('SearchController');
+
+	mixpanel.track("History View");
+	ga('send', 'HistoryView');
+
 	$ionicLoading.show({
 		template: '<i class="icon loadingIndicator ion-looping"></i>'
 	});

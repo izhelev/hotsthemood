@@ -3,9 +3,10 @@ angular.module("hotsthemoodApp")
 .factory('deviceIdHelper', function() {
 
 	return {
-		createIfNotExists: function() {
+		createIfNotExists: function(onCreation) {
 			if(!localStorage.getItem('deviceId')) {
 				localStorage.setItem('deviceId', Math.uuid());
+				onCreation();
 			}
 		},
 		get: function() {
