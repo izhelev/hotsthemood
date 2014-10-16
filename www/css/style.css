@@ -77,6 +77,7 @@
 	font-size: 5em;
 	font-family: Arial;
 	height: 200px;
+    border-radius: 10px;
 }
 
 .button-mood span:before {
