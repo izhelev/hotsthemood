@@ -81,6 +81,7 @@
 
 .button-mood span:before {
 	position: absolute;
+	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
 
