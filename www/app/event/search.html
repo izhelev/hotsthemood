@@ -1,0 +1,14 @@
+<ion-view ng-controller="SearchController" title="Whats happening?">
+	<ion-content>
+		<div class="list">
+			<a ng-repeat="item in nearbyEvents" class="item item-thumbnail-left item-icon-right"
+			 ui-sref="event.profile({event: {{item}}})" ng-click="selectedEvent(item)">
+				<img ng-attr-src="{{item.photoUrl}}">
+				<h2>{{item.name}}</h2>
+				<p>{{item.vicinity}}</p>
+				<i class="icon fa fa-angle-right"></i>
+			</a>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

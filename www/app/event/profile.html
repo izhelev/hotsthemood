@@ -1,0 +1,16 @@
+<ion-view ng-controller="EventProfileController" title="{{event.name}}">
+<ion-content>
+		<div class="row">
+			<div class="col">
+				<div class="list">					
+						<span class="item item-thumbnail-left" ng-model="event">
+							<img ng-attr-src="{{event.photoUrl}}">
+							<h2>{{event.name}}</h2>
+							<p>{{event.vicinity}}</p>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
